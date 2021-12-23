@@ -1,0 +1,37 @@
+primary key 
+it is a constraint that uniqulely identifies each record.
+it cannot be null
+it must be unique.
+
+auto_increment = primary key
+
+CREATE DATABASE contact;
+
+CREATE TABLE person(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(50) NOT NULL,
+    gender ENUM('M','F','O') NOT NULL,
+    is_added datetime DEFAULT NOW()
+);
+
+INSERT INTO
+person(name,gender)
+VALUES('sunil','M'), ('anil','M'), ('bini','F'), ('sila','F');
+
+CREATE TABLE phone(
+    id int primary key AUTO_INCREMENT,
+    person_id int NOT NULL,
+    phone varchar(15) NOT Null,
+    is_added datetime DEFAULT NOW(),
+    FOREIGN KEY(person_id) REFRENCES person(id)
+);
+
+INSERT INTO 
+phone(person_id,phone) 
+values(1,'10'), (1,'11'),(3,'12'),(4,'12');
+
+UPDATE phone SET phone = 13 WHERE id = 4;
+
+SELECT phone from phone where person_id =1;
+
+SELECT phone from phone where person_id = (SELECT id from person where person.name='sunil');

@@ -1,0 +1,4 @@
+database stores data in a organize form.
+RDBMS stands for Relational Database Management System.
+The data in RDBMS is stored in database objects called tables.
+ A table is a collection of related data entries and it consists of columns and rows.
